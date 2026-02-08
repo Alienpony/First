@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Name – Gaming Links</title>
+  <title>Owen Hubers – Gaming Links</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -49,12 +49,6 @@
       color: #9ca3af;
       margin-bottom: 1.5rem;
     }
-    .about {
-      font-size: 1rem;
-      color: #d1d5db;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
     .links a {
       display: block;
       margin-bottom: 1rem;
@@ -93,22 +87,47 @@
       transform: translateY(-3px);
       box-shadow: 0 20px 40px rgba(102, 192, 244, 0.6);
     }
-    .links a.twitch {
-      background: linear-gradient(135deg, #9146ff, #6441a5);
-      border-color: #9146ff;
+    .links a.xbox {
+      background: linear-gradient(135deg, #107c41, #00cc6a);
+      border-color: #107c41;
     }
-    .links a.twitch:hover {
-      background: linear-gradient(135deg, #9146ff, #a970ff);
-      color: #fff;
+    .links a.xbox:hover {
+      background: linear-gradient(135deg, #00cc6a, #107c41);
       transform: translateY(-3px);
     }
-    .links a.discord {
-      background: linear-gradient(135deg, #5865f2, #4752c4);
-      border-color: #5865f2;
+    .links a.spotify {
+      background: linear-gradient(135deg, #1db954, #1ed760);
+      border-color: #1db954;
     }
-    .links a.discord:hover {
-      background: linear-gradient(135deg, #5865f2, #7289da);
+    .links a.spotify:hover {
+      background: linear-gradient(135deg, #1ed760, #1db954);
       transform: translateY(-3px);
+    }
+    .links a.email {
+      background: linear-gradient(135deg, #0078d4, #106ebe);
+      border-color: #0078d4;
+    }
+    .links a.email:hover {
+      background: linear-gradient(135deg, #0078d4, #005a9e);
+      transform: translateY(-3px);
+    }
+    .links a.terraria {
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      border-color: #ff6b35;
+      font-size: 1rem;
+    }
+    .links a.terraria:hover {
+      background: linear-gradient(135deg, #ff8c42, #ff6b35);
+      transform: translateY(-3px);
+    }
+    .terraria-note {
+      background: rgba(255, 107, 53, 0.2);
+      border: 1px solid rgba(255, 107, 53, 0.5);
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+      color: #fecaca;
     }
     .footer {
       font-size: 0.85rem;
@@ -125,32 +144,38 @@
 </head>
 <body>
   <div class="card">
-    <!-- ADD YOUR PHOTO HERE: Save any image as "avatar.jpg" in same folder -->
-    <img src="avatar.jpg" alt="Your Name" class="avatar" onerror="this.style.display='none'">
+    <!-- ADD PHOTO: Save image as "avatar.jpg" in same folder -->
+    <img src="avatar.jpg" alt="Owen Hubers" class="avatar" onerror="this.style.display='none'">
 
-    <h1>Your Name</h1>
-    <p class="tagline">PC tinkerer, LAN party legend, Portland gamer</p>
-
-    <p class="about">
-      Building epic rigs, crushing puzzles, hosting Jackbox chaos. 
-      Click for streams, Steam profile, Discord, and squad links.
-    </p>
+    <h1>Owen Hubers</h1>
+    <p class="tagline">Hillsboro gamer • LAN party host • Portland tech tinkerer</p>
 
     <div class="links">
       <a href="https://steamcommunity.com/profiles/76561198274299822/" target="_blank" class="steam" rel="noopener">
         🎮 Steam Profile
       </a>
-      <a href="https://twitch.tv/yourname" target="_blank" class="twitch" rel="noopener">
-        📺 Twitch Live
+      <a href="https://www.xbox.com/en-US/play/user/Alien%20pony" target="_blank" class="xbox" rel="noopener">
+        🎯 Xbox Gamertag
       </a>
-      <a href="https://discord.gg/yourserver" target="_blank" class="discord" rel="noopener">
-        💬 Discord Server
+      <a href="https://open.spotify.com/user/31ia3ev5lytjiziqy7fw7aq3aulq" target="_blank" class="spotify" rel="noopener">
+        🎵 Spotify
       </a>
-      <!-- Add more links here -->
+      <a href="mailto:oxen28@outlook.com" class="email" rel="noopener">
+        ✉️ Email Me
+      </a>
+      
+      <div class="terraria-note">
+        <strong>🌟 Terraria Server</strong><br>
+        Open <strong>Wednesdays</strong><br>
+        <code>mc.8767128.xyz:7778</code>
+      </div>
+      <a href="https://mc.8767128.xyz:7778" target="_blank" class="terraria" rel="noopener">
+        🚀 Join Server Now
+      </a>
     </div>
 
     <div class="footer">
-      © <span id="year"></span> Your Name | Made with ❤️ for LAN parties
+      © <span id="year"></span> Owen Hubers | Made for LAN parties & squad hangs
     </div>
   </div>
 
