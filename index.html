@@ -161,30 +161,6 @@
 
     <h1>Owen Hubers</h1>
     <p class="tagline">Portland gamer • Just a Chill Guy • Tech tinkerer</p>
-
-<div style="text-align:center;margin:1.5rem 0;color:#9ca3af;font-size:0.95rem;">
-  👥 <span id="daily-count">0</span>
-  <div style="font-size:0.8rem;color:#6b7280;margin-top:0.25rem;">squad visits today</div>
-</div>
-
-<script>
-function updateDailyCounter() {
-  const now = new Date();
-  const today = now.toDateString();
-  const key = `squadVisits_${today}`;
-  let count = parseInt(localStorage.getItem(key) || '0') + 1;
-  localStorage.setItem(key, count);
-  document.getElementById('daily-count').textContent = count;
-}
-
-// Reset on new day + update
-if (localStorage.getItem('lastVisitDate') !== new Date().toDateString()) {
-  localStorage.removeItem(`squadVisits_${localStorage.getItem('lastVisitDate')}`);
-  localStorage.setItem('lastVisitDate', new Date().toDateString());
-}
-updateDailyCounter();
-</script>
-
     <div class="links">
       <a href="https://steamcommunity.com/profiles/76561198274299822/" target="_blank" class="steam" rel="noopener">
         🎮 Steam Profile
