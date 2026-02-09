@@ -160,16 +160,30 @@
     <img src="avatar.png" alt="Owen Hubers" class="avatar" onerror="this.src='avatar.jpg'; this.onerror=null;">
 
     <h1>Owen Hubers</h1>
-    <p class="tagline">Portland gamer • LAN party host • Tech tinkerer</p>
+    <p class="tagline">Portland gamer • Just a Chill Guy • Tech tinkerer</p>
 
-    <!-- ✅ FIXED VISITOR COUNTER - Image only, 100% reliable -->
-    <div style="text-align:center;margin:1.5rem 0;color:#9ca3af;font-size:0.95rem;">
-      👥 
-      <img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=g4k8rlnp8pcgmjp2z298zzjbfemqwdwu" 
-           border="0" title="Squad visits" alt="LAN counter"
-           style="vertical-align:middle;">
-      <div style="font-size:0.8rem;color:#6b7280;margin-top:0.25rem;">squad visits</div>
-    </div>
+<div style="text-align:center;margin:1.5rem 0;color:#9ca3af;font-size:0.95rem;">
+  👥 <span id="daily-count">0</span>
+  <div style="font-size:0.8rem;color:#6b7280;margin-top:0.25rem;">squad visits today</div>
+</div>
+
+<script>
+function updateDailyCounter() {
+  const now = new Date();
+  const today = now.toDateString();
+  const key = `squadVisits_${today}`;
+  let count = parseInt(localStorage.getItem(key) || '0') + 1;
+  localStorage.setItem(key, count);
+  document.getElementById('daily-count').textContent = count;
+}
+
+// Reset on new day + update
+if (localStorage.getItem('lastVisitDate') !== new Date().toDateString()) {
+  localStorage.removeItem(`squadVisits_${localStorage.getItem('lastVisitDate')}`);
+  localStorage.setItem('lastVisitDate', new Date().toDateString());
+}
+updateDailyCounter();
+</script>
 
     <div class="links">
       <a href="https://steamcommunity.com/profiles/76561198274299822/" target="_blank" class="steam" rel="noopener">
@@ -197,15 +211,41 @@
         <code>mc.8767128.xyz:7778</code><br><br>
         <small>We can host: Minecraft • Terraria • Don't Starve Together • ARK • and more!</small>
       </div>
+      <div class="server-status" style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); border-radius: 12px; padding: 1rem; margin: 1rem 0; font-size: 0.95rem; color: #ecfdf5; text-align: center;">
+        <strong>🌟 TmodLoader Server Status</strong><br>
+        <span id="server-online">Checking...</span> 
+        <span id="server-ping" style="font-size: 0.85rem;"></span>
+      </div>
+
+      <script>
+      async function checkServer() {
+        try {
+          const response = await fetch('https://api.mcsrvstat.us/2/mc.8767128.xyz/7778');
+          const data = await response.json();
+          const statusEl = document.getElementById('server-online');
+          const pingEl = document.getElementById('server-ping');
+          if (data.online) {
+            statusEl.textContent = '🟢 Online';
+            statusEl.style.color = '#10b981';
+            pingEl.textContent = `(Ping: ${data.latency || 'N/A'}ms)`;
+          } else {
+            statusEl.textContent = '🔴 Offline';
+            statusEl.style.color = '#ef4444';
+            pingEl.textContent = '';
+          }
+        } catch (error) {
+          document.getElementById('server-online').textContent = '❓ Unknown';
+          document.getElementById('server-online').style.color = '#9ca3af';
+        }
+      }
+      checkServer();
+      setInterval(checkServer, 30000);
+      </script>
+      <!-- END NEW CODE -->
+
     </div>
 
     <div class="footer">
       © <span id="year"></span> Owen Hubers | Made for LAN parties & squad hangs
     </div>
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
