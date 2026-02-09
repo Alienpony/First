@@ -187,38 +187,6 @@
         <code>mc.8767128.xyz:7778</code><br><br>
         <small>We can host: Minecraft • Terraria • Don't Starve Together • ARK • and more!</small>
       </div>
-      <div class="server-status" style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); border-radius: 12px; padding: 1rem; margin: 1rem 0; font-size: 0.95rem; color: #ecfdf5; text-align: center;">
-        <strong>🌟 TmodLoader Server Status</strong><br>
-        <span id="server-online">Checking...</span> 
-        <span id="server-ping" style="font-size: 0.85rem;"></span>
-      </div>
-
-      <script>
-      async function checkServer() {
-        try {
-          const response = await fetch('https://api.mcsrvstat.us/2/mc.8767128.xyz/7778');
-          const data = await response.json();
-          const statusEl = document.getElementById('server-online');
-          const pingEl = document.getElementById('server-ping');
-          if (data.online) {
-            statusEl.textContent = '🟢 Online';
-            statusEl.style.color = '#10b981';
-            pingEl.textContent = `(Ping: ${data.latency || 'N/A'}ms)`;
-          } else {
-            statusEl.textContent = '🔴 Offline';
-            statusEl.style.color = '#ef4444';
-            pingEl.textContent = '';
-          }
-        } catch (error) {
-          document.getElementById('server-online').textContent = '❓ Unknown';
-          document.getElementById('server-online').style.color = '#9ca3af';
-        }
-      }
-      checkServer();
-      setInterval(checkServer, 30000);
-      </script>
-      <!-- END NEW CODE -->
-
     </div>
 
     <div class="footer">
